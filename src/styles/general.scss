@@ -1,4 +1,25 @@
-@use "./partials/palette";
-@use "./partials/variables";
+@use "./partials/palette" as *;
+@use "./partials/variables" as *;
 
 @import "node_modules/bootstrap/scss/bootstrap";
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: $shark;
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+}
+
+.active {
+    color: $lima;
+}
