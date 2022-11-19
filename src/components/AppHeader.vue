@@ -1,79 +1,93 @@
 <script>
-import { store } from "../store";
-
 export default {
     name: "AppHeader",
     data() {
         return {
-            store,
-            number: "1.800.555.6789"
+            number: "1.800.555.6789",
+            imgLogo: "avada-movers-logo.png",
+            navLinks: [
+                {
+                    name: "Home",
+                    href: "/home",
+                    active: true
+
+                },
+                {
+                    name: "Rates",
+                    href: "/rates",
+                    active: false
+                },
+                {
+                    name: "Testimonials",
+                    href: "/testimonials",
+                    active: false
+                },
+                {
+                    name: "FAQ",
+                    href: "/faq",
+                    active: false
+                },
+                {
+                    name: "Blog",
+                    href: "/blog",
+                    active: false
+                },
+                {
+                    name: "Contact",
+                    href: "/contact",
+                    active: false
+                },
+            ]
         }
     },
+    methods: {
+        getImageUrl(url) {
+            return new URL(url, import.meta.url).href;
+        }
+    }
 }
+
 </script>
 
 <template>
     <!-- HEADER -->
     <header>
-        <!-- CONTACTS -->
-        <section class="contacts d-flex align-items-center">
-            <!-- CONTAINER -->
-            <div class="container d-flex">
-                <!-- CALL-NUMBER -->
-                <div class="call-number">
-                    <font-awesome-icon icon="fa-solid fa-phone-flip" class="me-1" />
+        <section class="contacts">
+            <div class="container d-flex justify-content-between">
+                <div class="call ">
                     Call us for a Quote: {{ number }}
                 </div>
-                <!-- /CALL-NUMBER -->
+                <div class="socials">
 
-                <!-- SOCIALS ICONS -->
-                <div class="socials ms-auto">
-                    <a href="">
-                        <font-awesome-icon icon="fa-brands fa-facebook" />
-                    </a>
-                    <a href="">
-                        <font-awesome-icon icon="fa-brands fa-twitter" />
-                    </a>
-                    <a href="">
-                        <font-awesome-icon icon="fa-brands fa-instagram" />
-                    </a>
-                    <a href="">
-                        <font-awesome-icon icon="fa-brands fa-youtube" />
-                    </a>
                 </div>
-                <!-- /SOCIALS ICONS -->
             </div>
-            <!-- CONTAINER -->
         </section>
-        <!-- /CONTACTS -->
-
-        <!-- MAIN HEADER -->
-        <section class="main-header">
-            <!-- CONTAINER -->
+        <section class="jumbotron">
             <div class="container d-flex justify-content-between mt-2">
-                <!-- LOGO -->
                 <div class="logo">
-                    <img src="../assets/images/avada-movers-logo.png" alt="">
+                    <img :src="getImageUrl(`../assets/images/${imgLogo}`)" alt="logo">
                 </div>
-                <!-- /LOGO -->
-
-                <!-- NAVIGATION HEADER -->
-                <nav class="header-nav d-flex">
-                    <ul class="d-flex align-items-center">
-                        <li class="ms-4" v-for="(link, index) in this.store.links" :key="index">
+                <nav>
+                    <ul class="d-flex">
+                        <li class="ms-4" v-for="(link, index) in navLinks" :key="index">
                             <a :href="link.href" :class="{ 'active': link.active }">
                                 {{ link.name }}
                             </a>
                         </li>
-                        <li><button class="btn ms-4">FREE QUOTE</button></li>
+                        <li>
+                            <button class="btn ms-4">FREE QUOTE</button>
+                        </li>
                     </ul>
                 </nav>
-                <!-- /NAVIGATION HEADER -->
             </div>
-            <!-- CONTAINER -->
+            <div class="container info text-center">
+                <h6>MOVING WITHOUT HASSLE</h6>
+                <h1>WE MAKE IT SIMPLE</h1>
+                <h6>PROFESSIONAL SERVICE WITH QUALITY AND CUSTOMER SATISFACTION</h6>
+            </div>
         </section>
-        <!-- /MAIN HEADER -->
     </header>
+
     <!-- /HEADER -->
 </template>
 
@@ -81,42 +95,69 @@ export default {
 @use "../styles/partials/palette" as *;
 @use "../styles/partials/variables" as *;
 
-// CONTACTS
 .contacts {
-    background-color: $lima;
-    color: white;
     height: $header-contacts-height;
+    background-color: $lima;
     font-size: .8rem;
 
-    .socials a {
-        margin-left: .8em;
+    .call {
         color: white;
+        line-height: $header-contacts-height;
     }
 }
 
-// MAIN-HEADER
-.main-header {
-    height: $header-main;
-    font-size: .9rem;
+.jumbotron {
+    background-image: url(../assets/images/avada-movers-homeherobackground-final.jpg);
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
 
-    .logo {
-        line-height: 50px;
-    }
+    .info {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
-    .logo img {
-        height: 40px;
-    }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
 
-    .header-nav ul {
-        line-height: $header-main;
+        h6 {
+            font-size: .8rem;
+            font-weight: 700;
+            color: $dove-gray;
+        }
     }
 }
+
+.contacts .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+ul {
+    margin: 0;
+    font-size: .8rem;
+    font-weight: 700;
+
+    li {
+        line-height: 40px;
+    }
+}
+
 
 // !!MOVE TO APPBUTTON
 .btn {
     width: 140px;
     height: 40px;
-    font-size: .9rem;
+    font-size: .8rem;
+    font-weight: 700;
     border-radius: 20px;
     color: white;
     background-color: $denim;
