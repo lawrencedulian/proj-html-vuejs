@@ -35,7 +35,7 @@ export default {
         <div class="small-banner text-center">
             <h5>GET A FREE QUOTE ONLINE NOW!</h5>
         </div>
-        <section class="testimonials">
+        <section class="award">
             <div class="container-fluid text-center">
                 <h6 class="mb-2">HEADACHE FREE</h6>
                 <h2>Award Winning</h2>
@@ -86,6 +86,66 @@ export default {
                 </div>
             </div>
         </section>
+        <section class="testimonials">
+            <div class="container">
+                <div class="text-center">
+                    <h6>HAPPY CUSTOMERS</h6>
+                    <h2>TESTIMONIALS</h2>
+                </div>
+                <div class="row row-cols-3 mt-5">
+                    <div class="col p-0 d-flex justify-content-center">
+                        <div class="card">
+                            <img src="../assets/images/avada-movers-johndoe-final-200x200.jpg" alt="">
+                            <!-- <img src="../assets/images/avada-movers-serviceonephoto-final-400x255.jpg" alt=""> -->
+                            <div class="text-center p-4">
+                                <h5>John Doe</h5>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lectus dolor,
+                                    aliquet sed maximus et, vestibulum pulvinar leo. Vivamus varius pretium fermentum."
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col p-0 d-flex justify-content-center">
+                        <div class="card">
+                            <img src="../assets/images/avada-movers-janedoe-final-200x200.jpg" alt="">
+                            <!-- <img src="../assets/images/avada-movers-serviceonephoto-final-400x255.jpg" alt=""> -->
+                            <div class="text-center p-4">
+                                <h5>Jane Doe</h5>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lectus dolor,
+                                    aliquet sed maximus et, vestibulum pulvinar leo. Vivamus varius pretium fermentum."
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col p-0 d-flex justify-content-center">
+                        <div class="card">
+                            <img src="../assets/images/avada-movers-johnsmith-final-200x200.jpg" alt="">
+                            <!-- <img src="../assets/images/avada-movers-serviceonephoto-final-400x255.jpg" alt=""> -->
+                            <div class="text-center p-4">
+                                <h5>John Smith</h5>
+                                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent lectus dolor,
+                                    aliquet sed maximus et, vestibulum pulvinar leo. Vivamus varius pretium fermentum."
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="d-flex justify-content-center"><button class="btn mt-3">READ MORE TESTIMONIALS</button>
+                </div>
+            </div>
+        </section>
+        <section class="request-quote">
+            <div class="container-fluid text-center">
+                <h2>Request A Free Quote</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nullam ac consectetur argue. Orci varius
+                    natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                <button class="btn">CLICK HERE</button>
+            </div>
+        </section>
     </main>
 </template>
 
@@ -104,7 +164,7 @@ export default {
     }
 }
 
-.testimonials {
+.award {
     background-color: #F7F8FC;
 
     .text-center {
@@ -183,6 +243,35 @@ export default {
             h2 {
                 color: white;
             }
+        }
+    }
+}
+
+.testimonials {
+    height: 700px;
+    padding: 5em;
+    background-image: url(../assets/images/avada-movers-testimonial-background.jpg);
+    background-size: cover;
+
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+}
+
+.request-quote {
+    height: 300px;
+    background-image: url(../assets/images/avada-movers-request-quote-background.jpg);
+    background-size: cover;
+
+    .text-center {
+        width: 50%;
+        padding: 5em;
+
+        p {
+            margin-top: 1.5em;
+            font-size: .8rem;
         }
     }
 }
