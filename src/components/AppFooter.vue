@@ -1,37 +1,11 @@
 <script>
+import { store } from '../store'
+
 export default {
     name: "AppFooter",
     data() {
         return {
-            recentPostLinks: [
-                {
-                    name: "Heading Out To College?",
-                    href: "/heading-out",
-                    active: false
-
-                },
-                {
-                    name: "Moves Your Business",
-                    href: "/move-business",
-                    active: false
-                },
-                {
-                    name: "Outstanding Quality",
-                    href: "/quality",
-                    active: false
-                },
-                {
-                    name: "Cost of Moving",
-                    href: "/costs",
-                    active: false
-                },
-                {
-                    name: "Best Moving Tips",
-                    href: "/tips",
-                    active: false
-                }
-            ]
-
+            store
         }
     },
     props: {
@@ -60,8 +34,8 @@ export default {
                         <h5>AVADA MOVERS</h5>
                         <ul>
                             <li v-for="(link, index) in navLinksObj" :key="index">
-                                <a :href="link.href">
-                                    {{ link.name }}
+                                <a :href="link.href" :class="{ 'active': link.active }">
+                                    <i class="fa-solid fa-greater-than"></i> {{ link.name }}
                                 </a>
                             </li>
                         </ul>
@@ -69,9 +43,9 @@ export default {
                     <div class="col-4">
                         <h5>RECENT POSTS</h5>
                         <ul>
-                            <li v-for="(link, index) in recentPostLinks" :key="index">
+                            <li v-for="(link, index) in store.recentPostLinks" :key="index">
                                 <a :href="link.href">
-                                    <i class="arrow right"></i>{{ link.name }}
+                                    <i class="fa-solid fa-greater-than"></i> {{ link.name }}
                                 </a>
                             </li>
                         </ul>
@@ -79,8 +53,20 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom p-4">
+            <div class="text-center">
+                © Copyright 2012 - 2020 |
+                <a href="">Avada Theme by ThemeFusion</a>
+                <a href="">| All Rights Reserved </a>
+                <a href="">| Powered by WordPress</a>
 
+                <div class="socials mt-2 ">
+                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
     <!-- /FOOTER -->
@@ -110,5 +96,15 @@ footer {
 .footer-bottom {
     height: $footer-bottom-height;
     background-color: $lima;
+
+    .text-center {
+        color: white;
+
+        a {
+            color: white;
+            margin-left: .4em;
+            margin-right: .4em;
+        }
+    }
 }
 </style>
