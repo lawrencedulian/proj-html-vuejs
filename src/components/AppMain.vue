@@ -21,12 +21,17 @@ export default {
 
 <template>
     <main>
+        <!-- SMALL BANNER -->
         <div class="small-banner text-center">
             <h6><i class="fa-regular fa-paper-plane me-2"></i>GET A FREE QUOTE ONLINE NOW!</h6>
         </div>
+        <!-- /SMALL BANNER -->
+
+        <!-- AWARD -->
         <section class="award">
-            <div class="container-fluid text-center">
-                <h5 class="mb-2">HEADACHE FREE</h5>
+            <!-- CONTAINER -->
+            <div class="container text-center">
+                <h4 class="mb-2">HEADACHE FREE</h4>
                 <h2>Award Winning</h2>
                 <h2>Moving Company</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore atque impedit velit ipsum ad
@@ -35,16 +40,24 @@ export default {
                     delectus iusto.</p>
                 <AppButton name="READ OUT TESTIMONIALS" />
             </div>
+            <!-- /CONTAINER -->
         </section>
+        <!-- AWARD -->
+
+        <!-- SERVICES -->
         <section class="services">
+            <!-- CONTAINER -->
             <div class="container">
                 <div class="text-center">
-                    <h5>WE ARE A PROFESSIONAL</h5>
+                    <h4>WE ARE A PROFESSIONAL</h4>
                     <h2>Full-Service Solution</h2>
                 </div>
-                <div class="row row-cols-3 mt-5">
+                <!-- ROW -->
+                <div class="row row-cols-3">
+                    <!-- COL -->
                     <div class="col p-0 d-flex justify-content-center" v-for="(service, index) in store.services"
                         :key="index">
+                        <!-- CARD -->
                         <div class="card">
                             <img :src="getImageUrl(`../assets/images/${service.image}`)" alt="">
                             <div class="text-center p-4">
@@ -53,34 +66,52 @@ export default {
                                 <AppButton name="READ MORE" />
                             </div>
                         </div>
+                        <!-- CARD -->
                     </div>
+                    <!-- /COL -->
                 </div>
+                <!-- /ROW -->
             </div>
+            <!-- /CONTAINER -->
         </section>
+        <!-- /SERVICES -->
+
+        <!-- BIG BANNER -->
         <section class="big-banner position-relative">
+            <!-- CONTAINER -->
             <div class="container">
+                <!-- CARD -->
                 <div class="card p-4">
                     <div class="text-center ">
-                        <h5>WE REMOVE THE HEADACHE FROM MOVING</h5>
-                        <h2>Move With Ease</h2>
-                        <p>With our super simple service we can take you from getting a quote, right through to being in
+                        <h4>WE REMOVE THE HEADACHE FROM MOVING</h4>
+                        <h2 class="border-bottom">Move With Ease</h2>
+                        <p class="mt-4">With our super simple service we can take you from getting a quote, right
+                            through to being in
                             you new home with all of your belongings securely packed and safely delivered, even in the
                             rooms of your choice.</p>
                         <AppButton name="GET A FREE QUOTE NOW" />
                     </div>
                 </div>
+                <!-- /CARD -->
             </div>
+            <!-- /CONTAINER -->
         </section>
+        <!-- /BIG BANNER -->
+
+        <!-- TESTIMONIALS -->
         <section class="testimonials">
+            <!-- CONTAINER -->
             <div class="container">
                 <div class="text-center">
-                    <h5>HAPPY CUSTOMERS</h5>
-                    <h2>TESTIMONIALS</h2>
+                    <h4>HAPPY CUSTOMERS</h4>
+                    <h2>Testimonials</h2>
                 </div>
-
+                <!-- ROW -->
                 <div class="row row-cols-3 mt-5">
+                    <!-- COL -->
                     <div class="col p-0 d-flex justify-content-center"
                         v-for="(testimonial, index) in store.testimonials" :key="index">
+                        <!-- CARD -->
                         <div class="card">
                             <img :src="getImageUrl(`../assets/images/${testimonial.image}`)" alt="">
                             <div class="text-center p-4">
@@ -88,21 +119,31 @@ export default {
                                 <p> {{ testimonial.text }} </p>
                             </div>
                         </div>
+                        <!-- /CARD -->
                     </div>
+                    <!-- COL -->
                 </div>
+                <!-- /ROW -->
             </div>
+            <!-- /CONTAINER -->
             <div class="d-flex justify-content-center">
                 <AppButton class="mt-3" name="READ MORE TESTIMONIALS" />
             </div>
         </section>
+        <!-- /TESTIMONIALS -->
+
+        <!-- REQUEST QUOTE -->
         <section class="request-quote">
+            <!-- CONTAINER FLUID -->
             <div class="container-fluid text-center">
                 <h2>Request A Free Quote</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nullam ac consectetur argue. Orci varius
                     natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                 <AppButton name="CLICK HERE" />
             </div>
+            <!-- /CONTAINER-FLUID -->
         </section>
+        <!-- /REQUEST QUOTE -->
     </main>
 </template>
 
@@ -128,7 +169,7 @@ export default {
         width: 50%;
         padding: 5em;
 
-        h5 {
+        h4 {
             color: $dove-gray;
         }
 
@@ -142,15 +183,17 @@ export default {
     padding: 5em;
 
     .card {
-        margin: 2em;
         border: 15px solid #F7F8FC;
-    }
+        margin: 1.5em;
 
-    .text-center {
-        h5 {
-            color: $denim;
+        .text-center {
+            h4 {
+                color: $denim;
+            }
         }
     }
+
+
 }
 
 .big-banner {
@@ -175,12 +218,8 @@ export default {
             font-size: .8rem;
 
             h2,
-            h5 {
+            h4 {
                 color: white;
-            }
-
-            h5 {
-                font-size: .6rem;
             }
         }
     }
@@ -205,7 +244,7 @@ export default {
         }
 
         .text-center {
-            h5 {
+            h4 {
                 color: $denim;
             }
         }

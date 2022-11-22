@@ -32,7 +32,7 @@ export default {
             <div class="container d-flex justify-content-between">
                 <div class="call ">
                     <i class="fa-solid fa-phone-flip me-2"></i>
-                    Call us for a Quote: {{ this.store.number }}
+                    Call us for a Quote: {{ store.number }}
                 </div>
                 <div class="socials d-flex align-items-center">
                     <a href=""><i class="fa-brands fa-facebook-f"></i></a>
@@ -45,7 +45,7 @@ export default {
         <section class="jumbotron">
             <div class="container d-flex justify-content-between mt-2">
                 <div class="logo">
-                    <img :src="getImageUrl(`../assets/images/${this.store.imgLogo}`)" alt="logo">
+                    <img :src="getImageUrl(`../assets/images/${store.imgLogo}`)" alt="logo">
                 </div>
                 <nav>
                     <ul class="d-flex">

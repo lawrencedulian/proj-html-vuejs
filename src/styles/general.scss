@@ -17,16 +17,28 @@ a {
     text-decoration: none;
 }
 
+h2,
+h4,
+h5,
 h6 {
-    font-size: .8rem;
     font-weight: 700;
-    color: $dove-gray;
 }
 
 h2 {
-    color: $lima-dark;
-    font-size: 2rem;
-    font-weight: 700;
+    color: $lima;
+}
+
+h4 {
+    color: $dove-gray;
+    font-size: .8rem;
+}
+
+h5 {
+    color: $denim;
+}
+
+p {
+    font-size: .8rem;
 }
 
 .container {
@@ -35,4 +47,9 @@ h2 {
 
 .active {
     color: $lima;
+}
+
+.card {
+    max-width: 450px;
+    border-radius: 0;
 }
