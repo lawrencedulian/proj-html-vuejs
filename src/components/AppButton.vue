@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: "button",
+    name: "AppButton",
     props: {
         name: String
     }
