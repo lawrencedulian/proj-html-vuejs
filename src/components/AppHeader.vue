@@ -1,50 +1,26 @@
 <script>
+import { store } from '../store'
+import AppButton from './AppButton.vue';
+
 export default {
     name: "AppHeader",
     data() {
         return {
-            number: "1.800.555.6789",
-            imgLogo: "avada-movers-logo.png",
-            navLinks: [
-                {
-                    name: "Home",
-                    href: "/home",
-                    active: true
-
-                },
-                {
-                    name: "Rates",
-                    href: "/rates",
-                    active: false
-                },
-                {
-                    name: "Testimonials",
-                    href: "/testimonials",
-                    active: false
-                },
-                {
-                    name: "FAQ",
-                    href: "/faq",
-                    active: false
-                },
-                {
-                    name: "Blog",
-                    href: "/blog",
-                    active: false
-                },
-                {
-                    name: "Contact",
-                    href: "/contact",
-                    active: false
-                },
-            ]
-        }
+            store
+        };
+    },
+    components: {
+        AppButton
+    },
+    props: {
+        navLinksObj: Object
     },
     methods: {
         getImageUrl(url) {
             return new URL(url, import.meta.url).href;
         }
-    }
+    },
+
 }
 
 </script>
@@ -55,27 +31,31 @@ export default {
         <section class="contacts">
             <div class="container d-flex justify-content-between">
                 <div class="call ">
-                    Call us for a Quote: {{ number }}
+                    <i class="fa-solid fa-phone-flip me-2"></i>
+                    Call us for a Quote: {{ this.store.number }}
                 </div>
-                <div class="socials">
-
+                <div class="socials d-flex align-items-center">
+                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
         </section>
         <section class="jumbotron">
             <div class="container d-flex justify-content-between mt-2">
                 <div class="logo">
-                    <img :src="getImageUrl(`../assets/images/${imgLogo}`)" alt="logo">
+                    <img :src="getImageUrl(`../assets/images/${this.store.imgLogo}`)" alt="logo">
                 </div>
                 <nav>
                     <ul class="d-flex">
-                        <li class="ms-4" v-for="(link, index) in navLinks" :key="index">
+                        <li class="ms-4" v-for="(link, index) in navLinksObj" :key="index">
                             <a :href="link.href" :class="{ 'active': link.active }">
                                 {{ link.name }}
                             </a>
                         </li>
                         <li>
-                            <button class="btn ms-4">FREE QUOTE</button>
+                            <AppButton class="ms-3" name="FREE QUOTE" />
                         </li>
                     </ul>
                 </nav>
@@ -104,6 +84,11 @@ export default {
         color: white;
         line-height: $header-contacts-height;
     }
+
+    .socials a {
+        color: white;
+        margin-left: .8em;
+    }
 }
 
 .jumbotron {
@@ -124,11 +109,6 @@ export default {
             font-weight: 800;
         }
 
-        h6 {
-            font-size: .8rem;
-            font-weight: 700;
-            color: $dove-gray;
-        }
     }
 }
 
